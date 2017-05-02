@@ -129,3 +129,11 @@ def ssd_net(inputs,
         net = slim.conv2d(net, 1024, [3, 3], rate=6, scope='conv6') #TODO: find the meaning of this rate
         end_points['block6'] = net
         # Block 7
+        net = slim.conv2d(net, 1024, [1, 1], scope='conv7')
+        end_points['block7'] = net
+
+        # Block 8/9/10/11: 1x1 and 3x3 convolutions stride 2 (except lasts)
+        end_point = 'block8'
+        with tf.variable_scope(end_point):
+            net = slim.conv2d(net, 256, [1, 1], scope='conv1x1')
+            net = custom_layers.pad2d(net, pad=(1, 1))
