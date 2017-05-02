@@ -13,3 +13,4 @@ def pad2d(inputs, pad=(0, 0), mode = 'CONSTANT', data_format='NHWC', trainable= 
         data_format: NHWC or HCHW data format.
     """
     with tf.name_scope(scope, 'pad2d', [inputs]):
+        #padding
