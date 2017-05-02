@@ -125,5 +125,7 @@ def ssd_net(inputs,
         net = slim.max_pool2d(net, [2, 2], scope='pool5')
 
         # Additional SSD blocks
-        # Block6
-        net = slim.conv2d(net, 1024, [3, 3], rate=6, scope='conv6')
+        # Block 6
+        net = slim.conv2d(net, 1024, [3, 3], rate=6, scope='conv6') #TODO: find the meaning of this rate
+        end_points['block6'] = net
+        # Block 7
